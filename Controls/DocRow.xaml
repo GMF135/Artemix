@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+	x:Class="Artemix.Controls.DocRow"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:models="clr-namespace:Artemix.Models"
+	x:DataType="models:DocumentItem">
+
+	<Border Style="{StaticResource Card}" HeightRequest="68" Padding="16,0">
+		<Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="16">
+			<!-- Icône « page » : rectangle teal + 3 lignes blanches -->
+			<Border WidthRequest="26" HeightRequest="32" VerticalOptions="Center"
+					StrokeThickness="0" BackgroundColor="{StaticResource Teal}"
+					StrokeShape="RoundRectangle 5">
+				<VerticalStackLayout Spacing="3.5" VerticalOptions="Center" HorizontalOptions="Center">
+					<BoxView WidthRequest="14" HeightRequest="2.5" Color="White" CornerRadius="1" />
+					<BoxView WidthRequest="14" HeightRequest="2.5" Color="White" CornerRadius="1" />
+					<BoxView WidthRequest="9" HeightRequest="2.5" Color="White" CornerRadius="1" HorizontalOptions="Start" />
+				</VerticalStackLayout>
+			</Border>
+
+			<VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+				<Label Text="{Binding Name}" FontSize="14" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+				<Label x:Name="SubLabel" FontSize="12" TextColor="{StaticResource Muted}" LineBreakMode="TailTruncation" />
+			</VerticalStackLayout>
+
+			<Label Grid.Column="2" Text="›" FontSize="20" TextColor="{StaticResource Muted}" VerticalOptions="Center" />
+		</Grid>
+	</Border>
+</ContentView>

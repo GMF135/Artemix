@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.HomePage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:c="clr-namespace:Artemix.Controls"
+	xmlns:models="clr-namespace:Artemix.Models"
+	Shell.NavBarIsVisible="False">
+
+	<Grid>
+		<ScrollView>
+			<VerticalStackLayout Padding="24,40,24,110" Spacing="0">
+				<Label Text="Mes documents" FontSize="20" FontAttributes="Bold" />
+				<Label Text="Tout est ici, bien rangé." Style="{StaticResource SectionLabel}" Margin="0,2,0,16" />
+
+				<Border Style="{StaticResource Pill}">
+					<Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+						<Border WidthRequest="16" HeightRequest="16" StrokeThickness="0" VerticalOptions="Center"
+								BackgroundColor="{StaticResource Line}" StrokeShape="RoundRectangle 8" />
+						<Entry x:Name="SearchEntry" Grid.Column="1" Placeholder="Rechercher un document"
+							   PlaceholderColor="{StaticResource Muted}" TextColor="{StaticResource Ink}"
+							   FontSize="14" ReturnType="Search" BackgroundColor="Transparent"
+							   Completed="OnSearchCompleted" />
+					</Grid>
+				</Border>
+
+				<Label Text="Catégories" FontSize="15" FontAttributes="Bold" Margin="0,18,0,10" />
+				<Grid x:Name="CategoryGrid" ColumnDefinitions="*,*" ColumnSpacing="8" RowSpacing="8" />
+
+				<Label Text="Récents" FontSize="15" FontAttributes="Bold" Margin="0,22,0,10" />
+				<VerticalStackLayout x:Name="RecentList" Spacing="8">
+					<BindableLayout.ItemTemplate>
+						<DataTemplate x:DataType="models:DocumentItem">
+							<c:DocRow Mode="Recent" />
+						</DataTemplate>
+					</BindableLayout.ItemTemplate>
+				</VerticalStackLayout>
+				<Label x:Name="EmptyLabel" Text="Aucun document pour l’instant. Touchez + pour en ajouter."
+					   Style="{StaticResource SectionLabel}" IsVisible="False" />
+			</VerticalStackLayout>
+		</ScrollView>
+
+		<!-- Bouton + -->
+		<Border WidthRequest="56" HeightRequest="56" StrokeThickness="0" BackgroundColor="{StaticResource Amber}"
+				StrokeShape="RoundRectangle 28" HorizontalOptions="End" VerticalOptions="End" Margin="0,0,24,24">
+			<Border.Shadow>
+				<Shadow Brush="Black" Opacity="0.2" Radius="8" Offset="0,3" />
+			</Border.Shadow>
+			<Label Text="+" FontSize="30" FontAttributes="Bold" TextColor="{StaticResource Teal}"
+				   HorizontalOptions="Center" VerticalOptions="Center" />
+			<Border.GestureRecognizers>
+				<TapGestureRecognizer Tapped="OnAddTapped" />
+			</Border.GestureRecognizers>
+		</Border>
+	</Grid>
+</ContentPage>

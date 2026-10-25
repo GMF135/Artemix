@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.BackupPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Shell.NavBarIsVisible="False">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="24,40,24,24" Spacing="0">
+			<Label Text="Sauvegarde" FontSize="20" FontAttributes="Bold" />
+
+			<Border Margin="0,22,0,0" HeightRequest="150" StrokeThickness="0"
+					BackgroundColor="{StaticResource Teal}" StrokeShape="RoundRectangle 16">
+				<VerticalStackLayout Padding="20" VerticalOptions="Center" Spacing="6">
+					<Label Text="Dernière sauvegarde" FontSize="13" TextColor="{StaticResource TealLight}" />
+					<Label x:Name="LastLabel" FontSize="22" FontAttributes="Bold" TextColor="White" />
+					<Label x:Name="StatsLabel" FontSize="13" TextColor="{StaticResource TealLight}" Margin="0,8,0,0" />
+				</VerticalStackLayout>
+			</Border>
+
+			<Button x:Name="BackupButton" Text="Sauvegarder maintenant" Style="{StaticResource AccentButton}"
+					Margin="0,24,0,0" Clicked="OnBackupNow" />
+
+			<Label Text="Restaurer" FontSize="15" FontAttributes="Bold" Margin="0,30,0,10" />
+			<Border Style="{StaticResource Card}" HeightRequest="76" Padding="16,0">
+				<VerticalStackLayout VerticalOptions="Center" Spacing="4">
+					<Label Text="Récupérer depuis une sauvegarde" FontSize="14" FontAttributes="Bold" />
+					<Label Text="Remplace les documents actuels." FontSize="12" TextColor="{StaticResource Muted}" />
+				</VerticalStackLayout>
+				<Border.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnRestoreTapped" />
+				</Border.GestureRecognizers>
+			</Border>
+
+			<Border Style="{StaticResource Card}" HeightRequest="56" Padding="16,0" Margin="0,12,0,0">
+				<Grid ColumnDefinitions="*,Auto">
+					<Label Text="Sauvegarde automatique" FontSize="14" VerticalOptions="Center" />
+					<Switch x:Name="AutoSwitch" Grid.Column="1" OnColor="{StaticResource Teal}" ThumbColor="White"
+							VerticalOptions="Center" Toggled="OnAutoToggled" />
+				</Grid>
+			</Border>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.ImportPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Shell.NavBarIsVisible="False"
+	Shell.TabBarIsVisible="False">
+
+	<Grid RowDefinitions="*,Auto">
+		<ScrollView>
+			<VerticalStackLayout Padding="24,40,24,16" Spacing="0">
+				<HorizontalStackLayout Spacing="0">
+					<Label Text="←" FontSize="22" Padding="0,0,16,0" VerticalOptions="Center">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnBackTapped" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label Text="Ajouter un document" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
+				</HorizontalStackLayout>
+
+				<!-- Sources : Fichier / Caméra / Galerie -->
+				<Grid ColumnDefinitions="*,*,*" ColumnSpacing="12" Margin="0,24,0,0">
+					<Border Style="{StaticResource Card}" HeightRequest="88">
+						<VerticalStackLayout VerticalOptions="Center" Spacing="10">
+							<Border WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center"
+									BackgroundColor="{StaticResource Teal}" StrokeShape="RoundRectangle 16" />
+							<Label Text="Fichier" FontSize="13" FontAttributes="Bold" HorizontalOptions="Center" />
+						</VerticalStackLayout>
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnPickFile" />
+						</Border.GestureRecognizers>
+					</Border>
+					<Border Grid.Column="1" Style="{StaticResource Card}" HeightRequest="88">
+						<VerticalStackLayout VerticalOptions="Center" Spacing="10">
+							<Border WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center"
+									BackgroundColor="{StaticResource Amber}" StrokeShape="RoundRectangle 16" />
+							<Label Text="Caméra" FontSize="13" FontAttributes="Bold" HorizontalOptions="Center" />
+						</VerticalStackLayout>
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnPickCamera" />
+						</Border.GestureRecognizers>
+					</Border>
+					<Border Grid.Column="2" Style="{StaticResource Card}" HeightRequest="88">
+						<VerticalStackLayout VerticalOptions="Center" Spacing="10">
+							<Border WidthRequest="32" HeightRequest="32" StrokeThickness="0" HorizontalOptions="Center"
+									BackgroundColor="{StaticResource Teal}" StrokeShape="RoundRectangle 16" />
+							<Label Text="Galerie" FontSize="13" FontAttributes="Bold" HorizontalOptions="Center" />
+						</VerticalStackLayout>
+						<Border.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnPickGallery" />
+						</Border.GestureRecognizers>
+					</Border>
+				</Grid>
+
+				<Label Text="Nom du document" Style="{StaticResource SectionLabel}" Margin="0,26,0,8" />
+				<Border Style="{StaticResource Card}" StrokeShape="RoundRectangle 12" HeightRequest="48" Padding="16,0">
+					<Entry x:Name="NameEntry" Placeholder="Ex. : Relevé de notes 2026"
+						   PlaceholderColor="{StaticResource Muted}" TextColor="{StaticResource Ink}"
+						   FontSize="14" BackgroundColor="Transparent" VerticalOptions="Center" />
+				</Border>
+
+				<Label Text="Catégorie" Style="{StaticResource SectionLabel}" Margin="0,22,0,8" />
+				<FlexLayout x:Name="ChipsLayout" Wrap="Wrap" Direction="Row" JustifyContent="Start" />
+
+				<Border x:Name="FileBox" Margin="0,18,0,0" HeightRequest="56" StrokeThickness="1"
+						Stroke="{StaticResource Line}" StrokeDashArray="4,3" BackgroundColor="Transparent"
+						StrokeShape="RoundRectangle 12">
+					<Label x:Name="FileLabel" Text="Aucun fichier sélectionné" FontSize="13"
+						   TextColor="{StaticResource Muted}" HorizontalOptions="Center" VerticalOptions="Center"
+						   LineBreakMode="MiddleTruncation" Padding="12,0" />
+				</Border>
+			</VerticalStackLayout>
+		</ScrollView>
+
+		<Button x:Name="SaveButton" Grid.Row="1" Text="Enregistrer le document" Style="{StaticResource PrimaryButton}"
+				Margin="24,8,24,24" Clicked="OnSave" />
+	</Grid>
+</ContentPage>

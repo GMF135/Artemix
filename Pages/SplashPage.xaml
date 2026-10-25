@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.SplashPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	BackgroundColor="{StaticResource Teal}"
+	Shell.NavBarIsVisible="False">
+
+	<Grid RowDefinitions="*,Auto,*" Padding="24">
+		<VerticalStackLayout Grid.Row="1" HorizontalOptions="Center" Spacing="0">
+			<!-- Logo : disque ambre + cadenas -->
+			<Border WidthRequest="104" HeightRequest="104" StrokeThickness="0"
+					BackgroundColor="{StaticResource Amber}" HorizontalOptions="Center"
+					StrokeShape="RoundRectangle 52">
+				<Grid>
+					<Border WidthRequest="26" HeightRequest="26" StrokeThickness="1.5" Stroke="White"
+							BackgroundColor="Transparent" StrokeShape="RoundRectangle 13"
+							TranslationY="-13" />
+					<Border WidthRequest="40" HeightRequest="30" StrokeThickness="0"
+							BackgroundColor="{StaticResource Teal}" StrokeShape="RoundRectangle 6"
+							TranslationY="7" />
+				</Grid>
+			</Border>
+			<Label Text="Artemix" FontSize="34" FontAttributes="Bold" TextColor="White"
+				   HorizontalTextAlignment="Center" Margin="0,34,0,0" />
+			<Label Text="Vos documents, protégés." FontSize="15" TextColor="{StaticResource TealLight}"
+				   HorizontalTextAlignment="Center" Margin="0,6,0,0" />
+		</VerticalStackLayout>
+
+		<Label Grid.Row="2" Text="Version 1.0" FontSize="12" TextColor="#7FA3AC"
+			   HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,16" />
+	</Grid>
+</ContentPage>

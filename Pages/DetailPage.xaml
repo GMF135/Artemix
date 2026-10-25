@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.DetailPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Shell.NavBarIsVisible="False"
+	Shell.TabBarIsVisible="False">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="24,40,24,24" Spacing="0">
+			<HorizontalStackLayout Spacing="0">
+				<Label Text="←" FontSize="22" Padding="0,0,16,0" VerticalOptions="Center">
+					<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="OnBackTapped" />
+					</Label.GestureRecognizers>
+				</Label>
+				<Label x:Name="TitleLabel" FontSize="20" FontAttributes="Bold" VerticalOptions="Center"
+					   LineBreakMode="TailTruncation" />
+			</HorizontalStackLayout>
+
+			<!-- Aperçu -->
+			<Border Style="{StaticResource Card}" HeightRequest="300" Margin="0,16,0,0">
+				<Grid>
+					<Border x:Name="PlaceholderPage" WidthRequest="200" HeightRequest="252" StrokeThickness="0"
+							BackgroundColor="{StaticResource Soft}" StrokeShape="RoundRectangle 6"
+							HorizontalOptions="Center" VerticalOptions="Center">
+						<VerticalStackLayout Padding="20,26" Spacing="18">
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" WidthRequest="110" HorizontalOptions="Start" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" WidthRequest="110" HorizontalOptions="Start" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" />
+							<BoxView HeightRequest="8" CornerRadius="4" Color="{StaticResource Line}" WidthRequest="110" HorizontalOptions="Start" />
+						</VerticalStackLayout>
+					</Border>
+					<Image x:Name="PreviewImage" Aspect="AspectFit" Margin="12" IsVisible="False" />
+					<Label Text="Touchez pour ouvrir" FontSize="11" TextColor="{StaticResource Muted}"
+						   HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,6" />
+				</Grid>
+				<Border.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnOpenTapped" />
+				</Border.GestureRecognizers>
+			</Border>
+
+			<Grid ColumnDefinitions="*,*" Margin="0,22,0,0">
+				<VerticalStackLayout Spacing="4">
+					<Label Text="Catégorie" FontSize="12" TextColor="{StaticResource Muted}" />
+					<Label x:Name="CategoryLabel" FontSize="15" FontAttributes="Bold" />
+				</VerticalStackLayout>
+				<VerticalStackLayout Grid.Column="1" Spacing="4">
+					<Label Text="Ajouté le" FontSize="12" TextColor="{StaticResource Muted}" />
+					<Label x:Name="DateLabel" FontSize="15" FontAttributes="Bold" />
+				</VerticalStackLayout>
+			</Grid>
+
+			<VerticalStackLayout Spacing="12" Margin="0,28,0,0">
+				<Button x:Name="ExportButton" Text="Exporter en PDF" Style="{StaticResource PrimaryButton}" Clicked="OnExportPdf" />
+				<Button Text="Partager" Style="{StaticResource OutlineButton}" Clicked="OnShare" />
+				<Button Text="Supprimer" Style="{StaticResource DangerButton}" Clicked="OnDelete" />
+			</VerticalStackLayout>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

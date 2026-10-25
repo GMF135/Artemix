@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+	x:Class="Artemix.AppShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:pages="clr-namespace:Artemix.Pages"
+	Shell.FlyoutBehavior="Disabled"
+	Shell.NavBarIsVisible="False"
+	Shell.TabBarBackgroundColor="{StaticResource White}"
+	Shell.TabBarForegroundColor="{StaticResource Teal}"
+	Shell.TabBarTitleColor="{StaticResource Teal}"
+	Shell.TabBarUnselectedColor="{StaticResource Muted}">
+
+	<TabBar>
+		<ShellContent Title="Accueil" Icon="tab_dot.png" Route="HomePage" ContentTemplate="{DataTemplate pages:HomePage}" />
+		<ShellContent Title="Recherche" Icon="tab_dot.png" Route="SearchPage" ContentTemplate="{DataTemplate pages:SearchPage}" />
+		<ShellContent Title="Sauvegarde" Icon="tab_dot.png" Route="BackupPage" ContentTemplate="{DataTemplate pages:BackupPage}" />
+		<ShellContent Title="Réglages" Icon="tab_dot.png" Route="SettingsPage" ContentTemplate="{DataTemplate pages:SettingsPage}" />
+	</TabBar>
+</Shell>

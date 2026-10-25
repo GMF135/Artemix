@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+	x:Class="Artemix.Pages.PinPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	Shell.NavBarIsVisible="False">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="24,40,24,24" Spacing="0">
+			<Label x:Name="BackLabel" Text="←" FontSize="22" HorizontalOptions="Start"
+				   Padding="0,0,24,16" IsVisible="False">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnBackTapped" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Border x:Name="LockBadge" WidthRequest="56" HeightRequest="56" StrokeThickness="0"
+					BackgroundColor="{StaticResource Teal}" HorizontalOptions="Center"
+					StrokeShape="RoundRectangle 28" IsVisible="False" Margin="0,24,0,0">
+				<Label Text="🔒" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center" />
+			</Border>
+
+			<Label x:Name="TitleLabel" FontSize="22" FontAttributes="Bold"
+				   HorizontalTextAlignment="Center" Margin="0,24,0,6" />
+			<Label x:Name="SubLabel" FontSize="13" TextColor="{StaticResource Muted}"
+				   HorizontalTextAlignment="Center" />
+
+			<HorizontalStackLayout x:Name="DotsRow" HorizontalOptions="Center" Spacing="22" Margin="0,30,0,10" />
+
+			<Label x:Name="ErrorLabel" FontSize="13" TextColor="{StaticResource Danger}"
+				   HorizontalTextAlignment="Center" MinimumHeightRequest="22" Margin="0,0,0,12" />
+
+			<Grid x:Name="Keypad" HorizontalOptions="Center" ColumnSpacing="36" RowSpacing="20"
+				  ColumnDefinitions="Auto,Auto,Auto" RowDefinitions="Auto,Auto,Auto,Auto" />
+
+			<Label x:Name="BioLabel" Text="Utiliser l’empreinte digitale" FontSize="14" FontAttributes="Bold"
+				   TextColor="{StaticResource Teal}" HorizontalOptions="Center" Margin="0,30,0,0"
+				   Padding="12" IsVisible="False">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnBioTapped" />
+				</Label.GestureRecognizers>
+			</Label>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

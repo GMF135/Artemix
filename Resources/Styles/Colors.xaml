@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<!-- Palette Artemix (d'après les maquettes) -->
+	<Color x:Key="Teal">#0F4C5C</Color>
+	<Color x:Key="Amber">#E09F3E</Color>
+	<Color x:Key="Bg">#F5F7F6</Color>
+	<Color x:Key="Ink">#14232A</Color>
+	<Color x:Key="Muted">#6B7C83</Color>
+	<Color x:Key="Line">#DCE3E5</Color>
+	<Color x:Key="Soft">#EEF2F3</Color>
+	<Color x:Key="Danger">#B3261E</Color>
+	<Color x:Key="TealLight">#BFD3D8</Color>
+	<Color x:Key="White">#FFFFFF</Color>
+
+	<SolidColorBrush x:Key="TealBrush" Color="{StaticResource Teal}" />
+	<SolidColorBrush x:Key="LineBrush" Color="{StaticResource Line}" />
+</ResourceDictionary>
